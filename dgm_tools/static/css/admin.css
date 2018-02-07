@@ -1,4 +1,1 @@
-.mce-panel {
-    display: flow-root !important;
-    /* width: 67% !important; */
-}
+.mce-tinymce { display: flow-root !important; }

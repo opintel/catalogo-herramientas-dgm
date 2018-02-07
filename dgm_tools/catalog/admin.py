@@ -20,6 +20,7 @@ class AdminPost(admin.ModelAdmin):
     fields = [
         'title',
         'description',
+        'link_external_tool',
         'text',
         'category',
         'tags',
@@ -35,7 +36,7 @@ class AdminPost(admin.ModelAdmin):
     class Media:
         js = (
             "https://cloud.tinymce.com/stable/tinymce.min.js",
-            "/static/js/init.tinymce.js?343334434",
+            "/static/js/init.tinymce.js?13443434",
         )
         css = {
             "all": ("/static/css/admin.css?2343432",)
@@ -48,9 +49,14 @@ class AdminCategory(admin.ModelAdmin):
     list_filter = (
         'name',
     )
+    list_display = (
+        'name',
+        'public'
+    )
     fields = [
         'name',
-        'description'
+        'description',
+        'public'
     ]
 
 
@@ -60,6 +66,11 @@ class AdminTag(admin.ModelAdmin):
     list_filter = (
         'tag',
     )
+    list_display = (
+        'tag',
+        'public'
+    )
     fields = [
-        'tag'
+        'tag',
+        'public'
     ]

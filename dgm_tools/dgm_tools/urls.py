@@ -16,13 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
-# from catalog.urls import 
+from django.conf import settings
 
 admin.site.site_title = 'Catalogo de Soluciones Abiertas'
 admin.site.site_header = 'Catalogo de Soluciones Abiertas'
 
 urlpatterns = [
     path('jet/', include('jet.urls', 'jet')),
-    path('admin/', admin.site.urls),
-    url('catalog/', include('catalog.urls'), name='catalog'),
+    path('catalogo/admin/', admin.site.urls),
+    url('catalogo/', include('catalog.urls'), name='catalog'),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns.append(url(r'^__debug__/', include(debug_toolbar.urls)),)
