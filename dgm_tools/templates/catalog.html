@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+
+{% block title %}Datos Abiertos de México - Catalogo Comunitario de Soluciones Abiertas{% endblock %}
+
+{% block js_scripts %}
+<script src="/static/js/mustache.min.js"></script>
+<script src="/static/js/catalogo.js?123456789"></script>
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% if posts.number > 1 %}
+    <ul class="breadcrumb">
+        <li>
+            <a ui-sref="landing" href="https://datos.gob.mx/">
+                <i class="glyphicon glyphicon-home"></i>
+            </a>
+        </li>
+        <li>
+            <a href="/catalogo/">Catálogo Comunitario</a>
+        </li>
+        <li>
+            <a>{{posts.number}}</a>
+        </li>
+    </ul>
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+    {% if posts.number == 1 %}
+    <section id="catalogo-banner">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="https://datos.gob.mx/img/ic-developers.png">
+                    <h1>Catálogo Comunitario de Soluciones Abiertas</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <div class="container-fluid ng-scope">
+        <div class="row">
+            <div class="col-md-12 section-page">
+                {% if posts.number == 1 %}
+                <h2 class="section-title ng-binding">Soluciones</h2>
+                <div class="row">
+                    <div class="col-md-12" style="text-align: justify;">
+                        <p>El <strong>Catálogo Comunitario de Soluciones Abiertas</strong> está pensado para facilitar el acceso a soluciones que pueden ser utilizadas para llevar a cabo proyectos de <strong>Datos Abiertos</strong> de forma más efectiva.
+                        Estas <strong>soluciones y herramientas abiertas</strong> fueron categorizadas para que sea más sencillo
+                            identificar el valor agregado que puede aportar cada una de ellas:</p>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px">
+                    <div class="col-md-4">
+                        <div class="inner"></div>
+                        <div class="post-info well div_api" style="height: 370px;">
+                            <!--<span class="tag-icon tag-developers"></span> -->
+                            <div class="tool-content">
+                                <h3 style="margin-top: 0px;">
+                                    <a href="https://datos.gob.mx/blog/adela?category=api-cdn&amp;tag=nula" alt="Adela" target="_blank"
+                                    class="ng-binding">Calidad de Datos Abiertos</a>
+                                </h3>
+                                <div class="author excerpt ng-binding" style="text-align: justify;">
+                                    Los Datos Abiertos son usables sólo si son entendibles por los ciudadanos
+                                    y si se pueden manipular mediante herramientas computacionales. 
+                                    La calidad de los datos a publicar facilita la generación de valor mediante su transformación en 
+                                    conocimiento que puede ser aplicado para la mejora de servicios, industria y bienes públicos. 
+                                    </br></br>
+                                    Algunos de los puntos más importantes para garantizar la calidad de los Datos Abiertos son:
+                                </div>
+                                <ul style="font-size: 12px; font-weight: 300; color: #9b9b9b; margin-top: 15px;">
+                                    <li>Vinculación de los datos con la fuente original</li>
+                                    <li>Actualización regular de los datos</li>
+                                    <li>Que sean publicados en formatos abiertos (CSV, Json, XML, KML)</li>
+                                    <li>Exactitud de metadata</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="inner"></div>
+                        <div class="post-info well div_api ng-scope" style="height: 370px;">
+                            <div class="tool-content">
+                                <h3 style="margin-top: 0px;">
+                                    <a href="https://datos.gob.mx/blog/adela?category=api-cdn&amp;tag=nula" alt="Adela" target="_blank"
+                                    class="ng-binding">Publicación de datos</a>
+                                </h3>
+                                <div class="author excerpt ng-binding" style="text-align: justify;">
+                                    Existen plataformas y herramientas que ayudan a los diferentes agentes a publicar
+                                    sus datos en la web de una forma más sencilla.
+                                    Estas plataformas trazan un camino que puede ser utilizado por las organizaciones
+                                    para cumplir con sus objetivos. Además, genera consistencia en la experiencia del
+                                    usuario a través de la red de organizaciones que buscan publicar datos.
+                                    Por último, las herramientas utilizadas para abrir datos pueden ser combinadas de
+                                    diversas formas según los resultados que se quieran alcanzar.</br></br>
+                                    En general, las herramientas seleccionadas permiten al usuario final encontrar y utilizar los datos.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="inner"></div>
+                        <div class="post-info well div_api ng-scope" style="height: 370px;">
+                            <div class="tool-content">
+                                <h3 style="margin-top: 0px;">
+                                    <a href="https://datos.gob.mx/blog/adela?category=api-cdn&amp;tag=nula" alt="Adela" target="_blank"
+                                    class="ng-binding">Uso de Datos Abiertos</a>
+                                </h3>
+                                <div class="author excerpt ng-binding" style="text-align: justify;">
+                                        Los Datos Abiertos tienen la posibilidad de hacer crecer economías y transformar
+                                        diversos aspectos de la sociedad. Por ese motivo, una de las responsabilidades de las
+                                        iniciativas de Datos Abiertos es promover el uso de los mismos para la generación de valor.
+                                        La generación de demanda por los datos específicos a abrir permiten que un proyecto de apertura
+                                        de datos se vuelva sustentable. Las herramientas seleccionadas ayudan a los proyectos a generar
+                                        nuevas formas de interactuar con los usuarios finales, que se busca adopten las nueva manera de acceder a información.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="search-form posts form-inline">
+                            <input type="text" name="keyword" id="titulo-herramienta" placeholder="Ej. API de Datos"
+                                class="form-control input-optimize">
+                            </input>
+                            <button type="button" class="btn btn-primary search-button search-optimize">
+                                <div class="glyphicon glyphicon-search"></div>
+                            </button>
+                            <select name="tag" id="tipo-herramienta" class="form-control hidden-xs hidden-sm ng-pristine ng-untouched ng-valid ng-empty">
+                                <option value="" class="" selected="selected">Tipos</option>
+
+                                {% for category in categories %}
+                                    <option label="{{category.name}}" value="{{category.id}}">{{category.name}}</option>
+                                {% endfor %}
+                            </select>
+                            <select name="tag" id="dificultad-herramienta" class="form-control hidden-xs hidden-sm ng-pristine ng-untouched ng-valid ng-empty">
+                                <option value="" class="" selected="selected">Nivel</option>
+
+                                {% for level in tags %}
+                                    <option label="{{level.tag}}" value="{{level.id}}">{{level.tag}}</option>
+                                {% endfor %}
+                            </select>
+                        </form>
+                    </div>
+                </div>
+                <div class="row posts-row">
+                    <div class="server-posts">
+                        {% for post in posts %}
+                            <div class="col-md-6 post-item">
+                                <div class="inner">
+                                    <a alt="{{post.title}}" href="{{post.get_absolute_url}}">
+                                        <img src="https://datos.gob.mx/public/img/uploads/5a3801925f14526e00dcdd64/f6GxgdxBGHm13LbR.png">
+                                    </a>
+        
+                                    <a alt="nula" class="tag" href="/">
+                                        <span class="tag-icon tag-nula"></span>
+                                    </a>
+        
+                                </div>
+        
+                                <div class="post-info">
+                                    <h3>
+                                        <a alt="{{post.title}}" href="{{post.get_absolute_url}}">{{post.title}}</a>
+                                        <!-- end ngIf: !post.external_link -->
+                                    </h3>
+                                    <p class="excerpt hidden-xs hidden-sm ">{{post.description}}</p>
+                                    <p class="category">
+                                        <a alt="Noticias" href="#">{{post.category.name}}</a>
+                                    </p>
+                                    <p class="author">Coordinación de Estrategia Digital Nacional (CEDN)
+                                        <a alt="{{post.title}}" class="read-more" href="{{post.get_absolute_url}}">Leer más</a>
+                                    </p>
+                                </div>
+                            </div>
+                            {% if forloop.counter|divisibleby:2 %}
+                                <div class="clearfix"></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="api-posts"></div>
+                </div>
+
+                {% if posts.has_other_pages %}
+                    <div class="text-center pagination-div">
+                        <ul class="pagination" max-size="10" boundary-links="true" boundary-link-numbers="true"
+                            rotate="true" total-items="total" items-per-page="per_page" previous-text="‹" next-text="›" first-text="«"
+                            last-text="»">
+
+                            <li ng-if="::boundaryLinks"class="pagination-first {% if not posts.has_previous %}disabled{% endif %}">
+                                <a href="/catalogo/">«</a>
+                            </li>
+
+                            <li class="pagination-prev ng-scope {% if not posts.has_previous %}disabled{% endif %}">
+                                <a href="/catalogo/p/{% if posts.has_previous %}{{posts.previous_page_number}}/{% endif %}">‹</a>
+                            </li>
+
+                            {% for i in p_range %}
+                                <li class="pagination-page {% if posts.number == i %}active{% endif %}">
+                                    <a href="/catalogo/p/{{i}}/" class="ng-binding">{{i}}</a>
+                                </li>
+                            {% endfor %}
+
+                            <li class="pagination-next {% if not posts.has_next %}disabled{% endif %}">
+                                <a href="/catalogo/p/{% if posts.has_next %}{{posts.next_page_number}}{% endif %}/">›</a>
+                            </li>
+
+                            <li class="pagination-last {% if not posts.has_next %}disabled{% endif %}">
+                                <a href="/catalogo/p/{% if posts.has_next %}{{posts.paginator.num_pages}}{% endif %}">»</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

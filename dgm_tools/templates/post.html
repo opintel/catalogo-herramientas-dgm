@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load html %}
+
+{% block title %}Datos Abiertos de México - {{post.title}}{% endblock %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a ui-sref="landing" href="https://datos.gob.mx/">
+                <i class="glyphicon glyphicon-home"></i>
+            </a>
+        </li>
+        <li>
+            <a href="/catalogo/">Catálogo Comunitario</a>
+        </li>
+        <li>
+            <a>{{post.title}}</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="post tool">
+                <div class="share-buttons hidden-xs hidden-sm">
+                    <p>Compartir</p>
+                    <div class="fb-share">
+                        <div fb-share="post.name" class="ng-isolate-scope">
+                            <div class="fb-share-button fb_iframe_widget" data-layout="button_count" fb-xfbml-state="rendered"
+                                fb-iframe-plugin-query="app_id=&amp;container_width=0&amp;href=https%3A%2F%2Fdatos.gob.mx%2Fherramientas%2Fsubastas-sae%3Fcategory%3Dmovil%26tag%3Deconomia&amp;layout=button_count&amp;locale=es_LA&amp;sdk=joey">
+                                <span style="vertical-align: bottom; width: 91px; height: 20px;">
+                                    <iframe name="f2fb8cdc63385a" width="1000px" height="1000px" frameborder="0" allowtransparency="true"
+                                        allowfullscreen="true" scrolling="no" title="fb:share_button Facebook Social Plugin"
+                                        src="https://www.facebook.com/plugins/share_button.php?app_id=&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FlY4eZXm_YWu.js%3Fversion%3D42%23cb%3Df53189a2b44838%26domain%3Ddatos.gob.mx%26origin%3Dhttps%253A%252F%252Fdatos.gob.mx%252Ff25c4dca2f369d%26relation%3Dparent.parent&amp;container_width=0&amp;href=https%3A%2F%2Fdatos.gob.mx%2Fherramientas%2Fsubastas-sae%3Fcategory%3Dmovil%26tag%3Deconomia&amp;layout=button_count&amp;locale=es_LA&amp;sdk=joey"
+                                        style="border: none; visibility: visible; width: 91px; height: 20px;" class=""></iframe>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tw-share">
+                        <div tweet="post.name" class="ng-isolate-scope">
+                            <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button"
+                                title="Twitter Tweet Button" src="https://platform.twitter.com/widgets/tweet_button.83d5793f6ebbe2046330abda6016ae93.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=https%3A%2F%2Fdatos.gob.mx%2Fherramientas%2Fsubastas-sae%3Fcategory%3Dmovil%26tag%3Deconomia&amp;size=m&amp;text=Subastas%20SAE&amp;time=1517513176706&amp;type=share&amp;url=https%3A%2F%2Fdatos.gob.mx%2Fherramientas%2Fsubastas-sae%3Fcategory%3Dmovil%26tag%3Deconomia&amp;via=DatosGobMx"
+                                style="position: static; visibility: visible; width: 61px; height: 20px;" data-url="https://datos.gob.mx/herramientas/subastas-sae?category=movil&amp;tag=economia"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="row hidden-md hidden-lg">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="tool-slider">
+                            <div id="tool-gallery-mobile" data-ride="carousel" class="carousel slide">
+                                <ol class="carousel-indicators">
+                                    <li class="active"></li>
+                                </ol>
+                                <div role="listbox" class="carousel-inner">
+                                    <div class="item active">
+                                        <img src="public/img/uploads/5825f94070209d6c005dc81d/K8eultqWy0e4nS3S.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-xs-12 col-sm-12 tool-info">
+                        <h1 class="title">{{post.title}}</h1>
+                        <p class="author">
+                            <span>{{post.created|date:"d b, Y"}} |</span>Coordinación de Estrategia Digital Nacional (CEDN)</p>
+                        <a alt="{{post.category.name}}" class="tag" href="#">
+                            <span class="tag-icon"></span>
+                            <span class="link">{{post.category.name}}</span>
+                        </a>
+                        <div class="link-buttons" style="text-align: center;">
+                            <a href="{{post.link_external_tool}}" alt="{{post.title}}" target="_blank" class="tool-link google-link">Web de la Solución Abierta</a>
+
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-md-offset-1 hidden-xs hidden-sm">
+                        <div class="tool-slider">
+                            <div id="tool-gallery"
+                                class="carousel slide">
+                                <ol class="carousel-indicators">
+                                    <li class="active"></li>
+                                </ol>
+                                <div role="listbox" class="carousel-inner">
+                                    <div class="item active">
+                                        <img src="https://datos.gob.mx/public/img/uploads/5a3801925f14526e00dcdd64/f6GxgdxBGHm13LbR.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div ng-bind-html="content" class="content">
+                            {{post.text|clean_extra_style|safe}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
