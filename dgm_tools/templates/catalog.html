@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% load static from staticfiles %}
 
 {% block title %}Datos Abiertos de México - Catalogo Comunitario de Soluciones Abiertas{% endblock %}
 
 {% block js_scripts %}
-<script src="/static/js/mustache.min.js"></script>
-<script src="/static/js/catalogo.js?123456789"></script>
+<script src="{% static 'js/mustache.min.js' %}"></script>
+<script src="{% static 'js/catalogo.js' %}"></script>
 {% endblock %}
 
 {% block breadcrumbs %}
@@ -28,7 +29,7 @@
 
 {% block content %}
     {% if posts.number == 1 %}
-    <section id="catalogo-banner">
+    <section id="catalogo-banner" style="background: url({% static 'img/bg-herramientas.png' %}) center center no-repeat;">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -141,10 +142,9 @@
                             </select>
                             <select name="tag" id="dificultad-herramienta" class="form-control hidden-xs hidden-sm ng-pristine ng-untouched ng-valid ng-empty">
                                 <option value="" class="" selected="selected">Nivel</option>
-
-                                {% for level in tags %}
-                                    <option label="{{level.tag}}" value="{{level.id}}">{{level.tag}}</option>
-                                {% endfor %}
+                                <option label="Principiante" value="1">Principiante</option>
+                                <option label="Intermedio" value="2">Intermedio</option>
+                                <option label="Avanzado" value="3">Avanzado</option>
                             </select>
                         </form>
                     </div>

@@ -7,6 +7,11 @@ from .serializers import PostListSerializer, PostSingleSerializer
 
 
 class PostFilter(filters.FilterSet):
+    """
+    Clase que configura la forma
+    de filtrar entradas en el API
+    del CMS
+    """
     class Meta:
         model = Post
         fields = {
@@ -17,6 +22,11 @@ class PostFilter(filters.FilterSet):
 
 
 class PostViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    Clase que configura la salida
+    del endpoint de entradas
+    dentro del API del CMS
+    """
     queryset = Post.objects.select_related('category').only(
         'id',
         'text',
@@ -34,8 +44,12 @@ class PostViewSet(viewsets.ReadOnlyModelViewSet):
     filter_class = PostFilter
 
     def get_serializer_class(self):
-        if self.action == 'list':
-            return PostListSerializer
+        """
+        Funcion que selecciona el serializador
+        dependiendo si se consulta un listado
+        de entradas o una entrada en particular
+        """
+
         if self.action == 'retrieve':
             return PostSingleSerializer
 

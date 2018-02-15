@@ -14,7 +14,7 @@
             <a href="/catalogo/">Catálogo Comunitario</a>
         </li>
         <li>
-            <a>{{post.title}}</a>
+            <a>{{post.title|truncatechars:"60"}}</a>
         </li>
     </ul>
 {% endblock %}
@@ -51,12 +51,9 @@
                     <div class="col-xs-12 col-sm-12">
                         <div class="tool-slider">
                             <div id="tool-gallery-mobile" data-ride="carousel" class="carousel slide">
-                                <ol class="carousel-indicators">
-                                    <li class="active"></li>
-                                </ol>
                                 <div role="listbox" class="carousel-inner">
                                     <div class="item active">
-                                        <img src="public/img/uploads/5825f94070209d6c005dc81d/K8eultqWy0e4nS3S.png">
+                                        <img src="https://datos.gob.mx/public/img/uploads/5a3801925f14526e00dcdd64/f6GxgdxBGHm13LbR.png">
                                     </div>
                                 </div>
                             </div>
@@ -74,16 +71,11 @@
                         </a>
                         <div class="link-buttons" style="text-align: center;">
                             <a href="{{post.link_external_tool}}" alt="{{post.title}}" target="_blank" class="tool-link google-link">Web de la Solución Abierta</a>
-
                         </div>
                     </div>
                     <div class="col-md-7 col-md-offset-1 hidden-xs hidden-sm">
                         <div class="tool-slider">
-                            <div id="tool-gallery"
-                                class="carousel slide">
-                                <ol class="carousel-indicators">
-                                    <li class="active"></li>
-                                </ol>
+                            <div id="tool-gallery" class="carousel slide">
                                 <div role="listbox" class="carousel-inner">
                                     <div class="item active">
                                         <img src="https://datos.gob.mx/public/img/uploads/5a3801925f14526e00dcdd64/f6GxgdxBGHm13LbR.png">

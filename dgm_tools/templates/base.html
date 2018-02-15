@@ -1,3 +1,4 @@
+{% load static from staticfiles %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,7 +16,8 @@
     <!-- CSS -->
     <link href="https://cdn.datos.gob.mx/assets/img/favicon.ico" rel="shortcut icon">
     <link href="https://cdn.datos.gob.mx/assets/css/main.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/style.css?12">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- Respond.js soporte de media queries para Internet Explorer 8 -->
     <!-- ie8.js EventTarget para cada nodo en Internet Explorer 8 -->
     <!--[if lt IE 9]>
@@ -105,7 +107,7 @@
     </main>
     <!-- JS -->
     {% comment %} <script src="https://cdn.datos.gob.mx/assets/js/main.js"></script> {% endcomment %}
-    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     {% block js_scripts %}{% endblock %}
 </body>
 </html>

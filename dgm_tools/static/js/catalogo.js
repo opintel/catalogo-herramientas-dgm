@@ -60,7 +60,7 @@ $(document).ready(function(){
                 filtros = filtros + "&";
              }
 
-             filtros += "tags__contains=" + dificultad_herramienta.trim();
+             filtros += "level=" + dificultad_herramienta.trim();
         }
         
         $.get('/catalogo/api/posts/?' + filtros).done(function(response){

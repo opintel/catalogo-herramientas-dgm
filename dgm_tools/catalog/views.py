@@ -24,7 +24,6 @@ def catalog_home(request, page=1):
 
     # Obteniendo variables de control publicas
     categories = Category.objects.filter(public=True).order_by('id')
-    tags = Tag.objects.filter(public=True).order_by('id')
 
     # Paginacion
     page_obj = pagination.page(page)
@@ -38,7 +37,6 @@ def catalog_home(request, page=1):
     context = {
         'settings': settings,
         'posts': page_obj,
-        'tags': tags,
         'categories': categories,
         'p_range': p_range,
         'init': init,
