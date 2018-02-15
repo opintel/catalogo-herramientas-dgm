@@ -13,12 +13,22 @@ class Post(models.Model):
     slug = models.SlugField(max_length=210, unique=True)
     text = models.TextField(blank=True, verbose_name='Texto')
     # Categorization
-    category = models.ForeignKey('Category', on_delete=models.CASCADE, verbose_name="Categoria")
-    level = models.IntegerField('Nivel', blank=True, null=True, db_index=True, choices=((1, 'Principiante'),(2, 'Intermedio'), (3, 'Avanzado')))
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, verbose_name="Categoría")
+    level = models.IntegerField(
+        'Nivel',
+        blank=True,
+        null=True,
+        db_index=True,
+        choices=(
+            (1, 'Principiante'),
+            (2, 'Intermedio'),
+            (3, 'Avanzado')
+        )
+    )
     tags = models.ManyToManyField('Tag')
-    link_external_tool = models.URLField(verbose_name="Link de le Herramienta", blank=True)
+    link_external_tool = models.URLField(verbose_name="Link de Solución", blank=True)
     # State
-    public = models.BooleanField(default=False, verbose_name='Publicado', db_index=True)
+    public = models.BooleanField(default=False, verbose_name='Publicar', db_index=True)
     # Periodicity
     created = models.DateTimeField(auto_now_add=True, verbose_name='Creado')
     modified = models.DateTimeField(auto_now=True, verbose_name='Modificado')
@@ -52,6 +62,11 @@ class Post(models.Model):
         super(Post, self).save()
 
     class Meta:
+        """
+        Meta del modelo de entradas
+        Se agregan indices conjuntos
+        y verbose del modelo
+        """
         index_together = ['slug', 'public']
         verbose_name = 'Solucion'
         verbose_name_plural = 'Soluciones'
@@ -85,7 +100,7 @@ class Category(models.Model):
         """
         if not self.id:
             self.slug = slugify(self.name)
-        
+
         super(Category, self).save()
 
     class Meta:
@@ -120,5 +135,5 @@ class Tag(models.Model):
         """
         if not self.id:
             self.slug = slugify(self.tag)
-        
+
         super(Tag, self).save()
