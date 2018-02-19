@@ -33,7 +33,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <img  alt="Catálogo Comunitario de Soluciones Abiertas" src="https://datos.gob.mx/img/ic-developers.png">
+                    <img alt="Catálogo Comunitario de Soluciones Abiertas" src="https://datos.gob.mx/img/ic-developers.png">
                     <h1>Catálogo Comunitario de Soluciones Abiertas</h1>
                 </div>
             </div>
@@ -45,7 +45,7 @@
         <div class="row">
             <div class="col-md-12 section-page">
                 {% if posts.number == 1 %}
-                <h2 class="section-title ng-binding">Soluciones</h2>
+                <h2 class="section-title">Soluciones</h2>
                 <div class="row">
                     <div class="col-md-12" style="text-align: justify;">
                         <p>El <strong>Catálogo Comunitario de Soluciones Abiertas</strong> está pensado para facilitar el acceso a soluciones que pueden ser utilizadas para llevar a cabo proyectos de <strong>Datos Abiertos</strong> de forma más efectiva.
@@ -67,7 +67,7 @@
                                     y si se pueden manipular mediante herramientas computacionales. 
                                     La calidad de los datos a publicar facilita la generación de valor mediante su transformación en 
                                     conocimiento que puede ser aplicado para la mejora de servicios, industria y bienes públicos. 
-                                    </br></br>
+                                    <br/><br/>
                                     Algunos de los puntos más importantes para garantizar la calidad de los Datos Abiertos son:
                                 </div>
                                 <ul style="font-size: 12px; font-weight: 300; color: #9b9b9b; margin-top: 15px;">
@@ -93,7 +93,7 @@
                                     para cumplir con sus objetivos. Además, genera consistencia en la experiencia del
                                     usuario a través de la red de organizaciones que buscan publicar datos.
                                     Por último, las herramientas utilizadas para abrir datos pueden ser combinadas de
-                                    diversas formas según los resultados que se quieran alcanzar.</br></br>
+                                    diversas formas según los resultados que se quieran alcanzar.<br/><br/>
                                     En general, las herramientas seleccionadas permiten al usuario final encontrar y utilizar los datos.
                                 </div>
                             </div>
@@ -194,7 +194,7 @@
 
                             {% for i in p_range %}
                                 <li class="pagination-page {% if posts.number == i %}active{% endif %}">
-                                    <a href="/catalogo/p/{{i}}/" class="ng-binding">{{i}}</a>
+                                    <a href="/catalogo/p/{{i}}/">{{i}}</a>
                                 </li>
                             {% endfor %}
 
