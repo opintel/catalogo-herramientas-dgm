@@ -1,3 +1,7 @@
+"""
+Modelos usados en el CMS
+de Soluciones de presidencia
+"""
 from django.db import models
 from django.contrib.auth.models import User
 from slugify import slugify
@@ -115,6 +119,7 @@ class Tag(models.Model):
     """
     tag = models.CharField(max_length=80, unique=True)
     slug = models.SlugField(db_index=True, editable=False)
+
     # Periodicity
     created = models.DateTimeField(auto_now_add=True, verbose_name='Creado')
     public = models.BooleanField(default=False, verbose_name='Publicado', db_index=True)

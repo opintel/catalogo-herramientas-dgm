@@ -19,6 +19,14 @@
     </ul>
 {% endblock %}
 
+{% block facebook_tags %}
+<meta property="og:url" content="{{post.link_external_tool}}" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{post.title}}" />
+<meta property="og:description" content="{{post.description}}" />
+<meta property="og:image" content="https://datos.gob.mx/public/img/uploads/5a3801925f14526e00dcdd64/f6GxgdxBGHm13LbR.png" />
+{% endblock %}
+
 {% block content %}
 <div class="container-fluid">
     <div class="row">

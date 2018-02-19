@@ -1,3 +1,7 @@
+"""
+Serializadores de modelos para mostrar
+resultados en el API del CMS
+"""
 from rest_framework import serializers
 from .models import Post
 

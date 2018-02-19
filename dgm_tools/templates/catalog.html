@@ -33,7 +33,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <img src="https://datos.gob.mx/img/ic-developers.png">
+                    <img  alt="Catálogo Comunitario de Soluciones Abiertas" src="https://datos.gob.mx/img/ic-developers.png">
                     <h1>Catálogo Comunitario de Soluciones Abiertas</h1>
                 </div>
             </div>
@@ -41,7 +41,7 @@
     </section>
     {% endif %}
 
-    <div class="container-fluid ng-scope">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 section-page">
                 {% if posts.number == 1 %}
@@ -60,10 +60,9 @@
                             <!--<span class="tag-icon tag-developers"></span> -->
                             <div class="tool-content">
                                 <h3 style="margin-top: 0px;">
-                                    <a href="https://datos.gob.mx/blog/adela?category=api-cdn&amp;tag=nula" alt="Adela" target="_blank"
-                                    class="ng-binding">Calidad de Datos Abiertos</a>
+                                    <a href="#">Calidad de Datos Abiertos</a>
                                 </h3>
-                                <div class="author excerpt ng-binding" style="text-align: justify;">
+                                <div class="author excerpt" style="text-align: justify;">
                                     Los Datos Abiertos son usables sólo si son entendibles por los ciudadanos
                                     y si se pueden manipular mediante herramientas computacionales. 
                                     La calidad de los datos a publicar facilita la generación de valor mediante su transformación en 
@@ -82,13 +81,12 @@
                     </div>
                     <div class="col-md-4">
                         <div class="inner"></div>
-                        <div class="post-info well div_api ng-scope" style="height: 370px;">
+                        <div class="post-info well div_api" style="height: 370px;">
                             <div class="tool-content">
                                 <h3 style="margin-top: 0px;">
-                                    <a href="https://datos.gob.mx/blog/adela?category=api-cdn&amp;tag=nula" alt="Adela" target="_blank"
-                                    class="ng-binding">Publicación de datos</a>
+                                    <a href="#">Publicación de datos</a>
                                 </h3>
-                                <div class="author excerpt ng-binding" style="text-align: justify;">
+                                <div class="author excerpt" style="text-align: justify;">
                                     Existen plataformas y herramientas que ayudan a los diferentes agentes a publicar
                                     sus datos en la web de una forma más sencilla.
                                     Estas plataformas trazan un camino que puede ser utilizado por las organizaciones
@@ -103,13 +101,12 @@
                     </div>
                     <div class="col-md-4">
                         <div class="inner"></div>
-                        <div class="post-info well div_api ng-scope" style="height: 370px;">
+                        <div class="post-info well div_api" style="height: 370px;">
                             <div class="tool-content">
                                 <h3 style="margin-top: 0px;">
-                                    <a href="https://datos.gob.mx/blog/adela?category=api-cdn&amp;tag=nula" alt="Adela" target="_blank"
-                                    class="ng-binding">Uso de Datos Abiertos</a>
+                                    <a href="#">Uso de Datos Abiertos</a>
                                 </h3>
-                                <div class="author excerpt ng-binding" style="text-align: justify;">
+                                <div class="author excerpt" style="text-align: justify;">
                                         Los Datos Abiertos tienen la posibilidad de hacer crecer economías y transformar
                                         diversos aspectos de la sociedad. Por ese motivo, una de las responsabilidades de las
                                         iniciativas de Datos Abiertos es promover el uso de los mismos para la generación de valor.
@@ -133,14 +130,14 @@
                             <button type="button" class="btn btn-primary search-button search-optimize">
                                 <div class="glyphicon glyphicon-search"></div>
                             </button>
-                            <select name="tag" id="tipo-herramienta" class="form-control hidden-xs hidden-sm ng-pristine ng-untouched ng-valid ng-empty">
+                            <select name="tag" id="tipo-herramienta" class="form-control hidden-xs hidden-sm">
                                 <option value="" class="" selected="selected">Tipos</option>
 
                                 {% for category in categories %}
                                     <option label="{{category.name}}" value="{{category.id}}">{{category.name}}</option>
                                 {% endfor %}
                             </select>
-                            <select name="tag" id="dificultad-herramienta" class="form-control hidden-xs hidden-sm ng-pristine ng-untouched ng-valid ng-empty">
+                            <select name="tag" id="dificultad-herramienta" class="form-control hidden-xs hidden-sm">
                                 <option value="" class="" selected="selected">Nivel</option>
                                 <option label="Principiante" value="1">Principiante</option>
                                 <option label="Intermedio" value="2">Intermedio</option>
@@ -154,27 +151,24 @@
                         {% for post in posts %}
                             <div class="col-md-6 post-item">
                                 <div class="inner">
-                                    <a alt="{{post.title}}" href="{{post.get_absolute_url}}">
-                                        <img src="https://datos.gob.mx/public/img/uploads/5a3801925f14526e00dcdd64/f6GxgdxBGHm13LbR.png">
+                                    <a href="{{post.get_absolute_url}}">
+                                        <img alt="{{post.title}}" src="https://datos.gob.mx/public/img/uploads/5a3801925f14526e00dcdd64/f6GxgdxBGHm13LbR.png">
                                     </a>
-        
-                                    <a alt="nula" class="tag" href="/">
+                                    <a class="tag" href="/">
                                         <span class="tag-icon tag-nula"></span>
                                     </a>
-        
                                 </div>
-        
                                 <div class="post-info">
                                     <h3>
-                                        <a alt="{{post.title}}" href="{{post.get_absolute_url}}">{{post.title}}</a>
+                                        <a href="{{post.get_absolute_url}}">{{post.title}}</a>
                                         <!-- end ngIf: !post.external_link -->
                                     </h3>
                                     <p class="excerpt hidden-xs hidden-sm ">{{post.description}}</p>
                                     <p class="category">
-                                        <a alt="Noticias" href="#">{{post.category.name}}</a>
+                                        <a href="#">{{post.category.name}}</a>
                                     </p>
                                     <p class="author">Coordinación de Estrategia Digital Nacional (CEDN)
-                                        <a alt="{{post.title}}" class="read-more" href="{{post.get_absolute_url}}">Leer más</a>
+                                        <a class="read-more" href="{{post.get_absolute_url}}">Leer más</a>
                                     </p>
                                 </div>
                             </div>
@@ -188,15 +182,13 @@
 
                 {% if posts.has_other_pages %}
                     <div class="text-center pagination-div">
-                        <ul class="pagination" max-size="10" boundary-links="true" boundary-link-numbers="true"
-                            rotate="true" total-items="total" items-per-page="per_page" previous-text="‹" next-text="›" first-text="«"
-                            last-text="»">
+                        <ul class="pagination">
 
-                            <li ng-if="::boundaryLinks"class="pagination-first {% if not posts.has_previous %}disabled{% endif %}">
+                            <li class="pagination-first {% if not posts.has_previous %}disabled{% endif %}">
                                 <a href="/catalogo/">«</a>
                             </li>
 
-                            <li class="pagination-prev ng-scope {% if not posts.has_previous %}disabled{% endif %}">
+                            <li class="pagination-prev {% if not posts.has_previous %}disabled{% endif %}">
                                 <a href="/catalogo/p/{% if posts.has_previous %}{{posts.previous_page_number}}/{% endif %}">‹</a>
                             </li>
 

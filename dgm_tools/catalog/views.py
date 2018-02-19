@@ -1,8 +1,12 @@
+"""
+Configuracion de vistas del CMS
+Vistas para usuarios de datos.gob.mx
+"""
 from django.http import Http404
 from django.conf import settings
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from .models import Post, Category, Tag
+from .models import Post, Category
 
 
 # Create your views here.
@@ -14,7 +18,7 @@ def catalog_home(request, page=1):
 
     Los posts se ordenan del mas reciente al mas antiguo
 
-    Parametros: 
+    Parametros:
         - page <int>: Indice de paginacion
     """
 
@@ -51,7 +55,7 @@ def catalog_tool(request, slug=None):
     URL: /catalogo/herramientas/<str:slug>/
     Vista que muestra el post de la herramienta
 
-    Parametros: 
+    Parametros:
         - slug <str>: Slug del post publicado
     """
 
@@ -61,7 +65,14 @@ def catalog_tool(request, slug=None):
 
     # Se consulta por la nota publicada
     try:
-        post = Post.objects.only('title', 'description', 'slug', 'text', 'created', 'link_external_tool').prefetch_related('category').get(slug=slug, public=True)
+        post = Post.objects.only(
+            'title',
+            'description',
+            'slug',
+            'text',
+            'created',
+            'link_external_tool'
+        ).prefetch_related('category').get(slug=slug, public=True)
     except:
         raise Http404
 

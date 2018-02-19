@@ -1,7 +1,10 @@
-from django_filters import rest_framework as filters 
+"""
+Clases de configuracion
+para los endpoints del API CMS
+"""
+from django_filters import rest_framework as filters
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import viewsets
-from rest_framework.response import Response
+from rest_framework.viewsets import ReadOnlyModelViewSet
 from .models import Post
 from .serializers import PostListSerializer, PostSingleSerializer
 
@@ -21,7 +24,7 @@ class PostFilter(filters.FilterSet):
         }
 
 
-class PostViewSet(viewsets.ReadOnlyModelViewSet):
+class PostViewSet(ReadOnlyModelViewSet):
     """
     Clase que configura la salida
     del endpoint de entradas
