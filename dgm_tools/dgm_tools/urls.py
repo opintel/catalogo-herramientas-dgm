@@ -23,8 +23,8 @@ admin.site.site_header = 'Catalogo de Soluciones Abiertas'
 
 urlpatterns = [
     path('jet/', include('jet.urls', 'jet')),
-    path('catalogo/admin/', admin.site.urls),
-    url('catalogo/', include('catalog.urls'), name='catalog'),
+    path('soluciones-abiertas/admin/', admin.site.urls),
+    url('soluciones-abiertas/', include('catalog.urls'), name='catalog'),
 ]
 
 if settings.DEBUG:
