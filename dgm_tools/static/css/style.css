@@ -363,5 +363,18 @@ section#landing-table .data-table {
 }
 
 .tool-content a {
-    cursor: none;
+    cursor: default;
+}
+
+.no-cursor {
+    cursor: default !important;
+}
+
+.description-post { 
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+.post .link-buttons {
+    position: inherit !important;
 }

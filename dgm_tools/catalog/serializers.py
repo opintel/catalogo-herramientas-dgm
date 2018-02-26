@@ -12,6 +12,7 @@ class PostSingleSerializer(serializers.ModelSerializer):
     de una entrada en la base de datos
     para ser expuesta en el API del CMS
     """
+    category = serializers.StringRelatedField(many=False)
     class Meta:
         model = Post
         fields = (
@@ -33,6 +34,7 @@ class PostListSerializer(serializers.ModelSerializer):
     de un conjunto de entradas en la base
     de datos para ser expuestas en el API del CMS
     """
+    category = serializers.StringRelatedField(many=False)
     class Meta:
         model = Post
         fields = (

@@ -12,7 +12,7 @@ $(document).ready(function(){
                     <img src="https://datos.gob.mx/public/img/uploads/5a3801925f14526e00dcdd64/f6GxgdxBGHm13LbR.png">
                 </a>
 
-                <a class="tag">
+                <a class="tag no-cursor">
                     <span class="tag-icon tag-nula"></span>
                 </a>
 
@@ -25,7 +25,7 @@ $(document).ready(function(){
                 </h3>
                 <p class="excerpt hidden-xs hidden-sm ">{{description}}</p>
                 <p class="category">
-                    <a alt="Noticias" href="#">{{category}}</a>
+                    <a class="no-cursor">{{category}}</a>
                 </p>
                 <p class="author">Coordinación de Estrategia Digital Nacional (CEDN)
                     <a alt="{{title}}" class="read-more" href="/soluciones-abiertas/herramientas/{{slug}}">Leer más</a>
@@ -67,6 +67,9 @@ $(document).ready(function(){
             $('.api-posts').html('');
 
             for(var x=0; x < response.results.length; x++){
+                if(x % 2 == 0 && x > 0){
+                    $('.api-posts').append('<div class="clearfix"></div>');
+                }
                 var rendered = Mustache.render(template_post, response.results[x]);
                 $('.api-posts').append(rendered);
             }

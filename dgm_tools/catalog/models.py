@@ -32,7 +32,7 @@ class Post(models.Model):
     tags = models.ManyToManyField('Tag')
     link_external_tool = models.URLField(verbose_name="Link de Solución", blank=True)
     # State
-    public = models.BooleanField(default=False, verbose_name='Publicar', db_index=True)
+    public = models.BooleanField(default=False, verbose_name='Publicado', db_index=True)
     # Periodicity
     created = models.DateTimeField(auto_now_add=True, verbose_name='Creado')
     modified = models.DateTimeField(auto_now=True, verbose_name='Modificado')
@@ -72,7 +72,7 @@ class Post(models.Model):
         y verbose del modelo
         """
         index_together = ['slug', 'public']
-        verbose_name = 'Solucion'
+        verbose_name = 'Solución'
         verbose_name_plural = 'Soluciones'
 
 
