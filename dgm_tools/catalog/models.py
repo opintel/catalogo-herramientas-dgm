@@ -108,8 +108,8 @@ class Category(models.Model):
         super(Category, self).save()
 
     class Meta:
-        verbose_name = 'Categoria'
-        verbose_name_plural = 'Categorias'
+        verbose_name = 'Categoría'
+        verbose_name_plural = 'Categorías'
 
 
 class Tag(models.Model):
