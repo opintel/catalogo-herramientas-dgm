@@ -12,7 +12,7 @@ from .models import Post, Category
 # Create your views here.
 def catalog_home(request, page=1):
     """
-    URL: /catalogo/p/<int:page>/
+    URL: /soluciones-abiertas/p/<int:page>/
     Vista que lista los posts de herramientas
     pagina en grupos de 10 posts
 
@@ -52,7 +52,7 @@ def catalog_home(request, page=1):
 
 def catalog_tool(request, slug=None):
     """
-    URL: /catalogo/herramientas/<str:slug>/
+    URL: /soluciones-abiertas/herramientas/<str:slug>/
     Vista que muestra el post de la herramienta
 
     Parametros:

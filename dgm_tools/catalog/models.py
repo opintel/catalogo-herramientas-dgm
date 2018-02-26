@@ -12,7 +12,7 @@ class Post(models.Model):
     Modelo de las entradas
     del CMS
     """
-    title = models.CharField(null=False, max_length=110, verbose_name='Titulo', db_index=True)
+    title = models.CharField(null=False, max_length=110, verbose_name='Titulo', db_index=True, unique=True)
     description = models.TextField(blank=True, verbose_name='Encabezado')
     slug = models.SlugField(max_length=210, unique=True)
     text = models.TextField(blank=True, verbose_name='Texto')

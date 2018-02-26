@@ -11,7 +11,7 @@
             </a>
         </li>
         <li>
-            <a href="/catalogo/">Catálogo Comunitario</a>
+            <a href="/soluciones-abiertas/">Catálogo Comunitario</a>
         </li>
         <li>
             <a>{{post.title|truncatechars:"60"}}</a>
@@ -72,10 +72,13 @@
                         <h1 class="title">{{post.title}}</h1>
                         <p class="author">
                             <span>{{post.created|date:"d b, Y"}} |</span>Coordinación de Estrategia Digital Nacional (CEDN)</p>
-                        <a class="tag" href="#">
+                        <a class="tag">
                             <span class="tag-icon"></span>
                             <span class="link">{{post.category.name}}</span>
                         </a>
+                        <p>
+                            {{post.description}}
+                        </p>
                         <div class="link-buttons" style="text-align: center;">
                             <a href="{{post.link_external_tool}}" target="_blank" class="tool-link google-link">Web de la Solución Abierta</a>
                         </div>

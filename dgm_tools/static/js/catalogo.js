@@ -8,11 +8,11 @@ $(document).ready(function(){
 
     var template_post = `<div class="col-md-6 post-item">
         <div class="inner">
-                <a alt="{{title}}" href="/catalogo/herramientas/{{slug}}">
+                <a alt="{{title}}" href="/soluciones-abiertas/herramientas/{{slug}}">
                     <img src="https://datos.gob.mx/public/img/uploads/5a3801925f14526e00dcdd64/f6GxgdxBGHm13LbR.png">
                 </a>
 
-                <a alt="nula" class="tag" href="/">
+                <a class="tag">
                     <span class="tag-icon tag-nula"></span>
                 </a>
 
@@ -20,7 +20,7 @@ $(document).ready(function(){
 
             <div class="post-info">
                 <h3>
-                    <a alt="{{title}}" href="/catalogo/herramientas/{{slug}}">{{title}}</a>
+                    <a alt="{{title}}" href="/soluciones-abiertas/herramientas/{{slug}}">{{title}}</a>
                     <!-- end ngIf: !post.external_link -->
                 </h3>
                 <p class="excerpt hidden-xs hidden-sm ">{{description}}</p>
@@ -28,7 +28,7 @@ $(document).ready(function(){
                     <a alt="Noticias" href="#">{{category}}</a>
                 </p>
                 <p class="author">Coordinación de Estrategia Digital Nacional (CEDN)
-                    <a alt="{{title}}" class="read-more" href="/catalogo/herramientas/{{slug}}">Leer más</a>
+                    <a alt="{{title}}" class="read-more" href="/soluciones-abiertas/herramientas/{{slug}}">Leer más</a>
                 </p>
             </div>
     </div>`;
@@ -63,7 +63,7 @@ $(document).ready(function(){
              filtros += "level=" + dificultad_herramienta.trim();
         }
         
-        $.get('/catalogo/api/posts/?' + filtros).done(function(response){
+        $.get('/soluciones-abiertas/api/posts/?' + filtros).done(function(response){
             $('.api-posts').html('');
 
             for(var x=0; x < response.results.length; x++){

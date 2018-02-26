@@ -8,6 +8,7 @@
 <script src="{% static 'js/catalogo.js' %}"></script>
 {% endblock %}
 
+
 {% block breadcrumbs %}
     {% if posts.number > 1 %}
     <ul class="breadcrumb">
@@ -17,7 +18,7 @@
             </a>
         </li>
         <li>
-            <a href="/catalogo/">Catálogo Comunitario</a>
+            <a href="/soluciones-abiertas/">Catálogo Comunitario</a>
         </li>
         <li>
             <a>{{posts.number}}</a>
@@ -60,7 +61,7 @@
                             <!--<span class="tag-icon tag-developers"></span> -->
                             <div class="tool-content">
                                 <h3 style="margin-top: 0px;">
-                                    <a href="#">Calidad de Datos Abiertos</a>
+                                    <a>Calidad de Datos Abiertos</a>
                                 </h3>
                                 <div class="author excerpt" style="text-align: justify;">
                                     Los Datos Abiertos son usables sólo si son entendibles por los ciudadanos
@@ -185,25 +186,25 @@
                         <ul class="pagination">
 
                             <li class="pagination-first {% if not posts.has_previous %}disabled{% endif %}">
-                                <a href="/catalogo/">«</a>
+                                <a href="/soluciones-abiertas/">«</a>
                             </li>
 
                             <li class="pagination-prev {% if not posts.has_previous %}disabled{% endif %}">
-                                <a href="/catalogo/p/{% if posts.has_previous %}{{posts.previous_page_number}}/{% endif %}">‹</a>
+                                <a href="/soluciones-abiertas/p/{% if posts.has_previous %}{{posts.previous_page_number}}/{% endif %}">‹</a>
                             </li>
 
                             {% for i in p_range %}
                                 <li class="pagination-page {% if posts.number == i %}active{% endif %}">
-                                    <a href="/catalogo/p/{{i}}/">{{i}}</a>
+                                    <a href="/soluciones-abiertas/p/{{i}}/">{{i}}</a>
                                 </li>
                             {% endfor %}
 
                             <li class="pagination-next {% if not posts.has_next %}disabled{% endif %}">
-                                <a href="/catalogo/p/{% if posts.has_next %}{{posts.next_page_number}}{% endif %}/">›</a>
+                                <a href="/soluciones-abiertas/p/{% if posts.has_next %}{{posts.next_page_number}}{% endif %}/">›</a>
                             </li>
 
                             <li class="pagination-last {% if not posts.has_next %}disabled{% endif %}">
-                                <a href="/catalogo/p/{% if posts.has_next %}{{posts.paginator.num_pages}}{% endif %}">»</a>
+                                <a href="/soluciones-abiertas/p/{% if posts.has_next %}{{posts.paginator.num_pages}}{% endif %}">»</a>
                             </li>
 
                         </ul>

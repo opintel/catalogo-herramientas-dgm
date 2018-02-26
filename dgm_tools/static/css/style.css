@@ -361,3 +361,7 @@ section#landing-table .data-table {
         margin-top: 5px !important;
     }
 }
+
+.tool-content a {
+    cursor: none;
+}
