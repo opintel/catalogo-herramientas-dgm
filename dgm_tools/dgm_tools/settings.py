@@ -22,7 +22,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'o_-jcf4lfs^qy4ieuoi@csjr_d)bx!95-j3g)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
-FQDN = os.environ.get('FQND', '0.0.0.0')
+FQDN = os.environ.get('FQDN', '0.0.0.0')
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '0.0.0.0').split(',')
 
 # Application definition
