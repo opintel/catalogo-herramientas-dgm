@@ -44,7 +44,7 @@ $(document).ready(function(){
         var titulo_herramienta = $('#titulo-herramienta').val();
 
         if(titulo_herramienta.trim()){
-            filtros = "title__icontains=" + titulo_herramienta.trim();
+            filtros = "title=" + titulo_herramienta.trim();
         }
 
         if(tipo_herramienta.trim()){

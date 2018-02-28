@@ -15,13 +15,18 @@ class PostFilter(filters.FilterSet):
     de filtrar entradas en el API
     del CMS
     """
+    title = filters.CharFilter(name="title", method="unaccent_search")
     class Meta:
         model = Post
-        fields = {
-            'category': ['exact'],
-            'tags': ['exact', 'contains'],
-            'title': ['exact', 'contains', 'startswith', 'icontains']
-        }
+        # fields = {
+        #     'category': ['exact'],
+        #     'tags': ['exact', 'contains'],
+        #     'title': []
+        # }
+        fields = ["category", "tags", "title"]
+
+    def unaccent_search(self, queryset, name, value):
+        return queryset.filter(title__unaccent__icontains=value)
 
 
 class PostViewSet(ReadOnlyModelViewSet):
