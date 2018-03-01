@@ -43,7 +43,7 @@ class Post(models.Model):
         Verbose de una instancia
         entrada en la base de datos
         """
-        return 'Post: {}'.format(self.title)
+        return '{}'.format(self.title)
 
     def get_absolute_url(self):
         """
@@ -61,7 +61,12 @@ class Post(models.Model):
         del titulo
         """
         if not self.id:
-            self.slug = slugify(self.title)
+            slug = slugify(self.title)
+            count = Post.objects.filter(slug__startswith=slug).count()
+            if count > 0:
+                slug = '{}-{}'.format(slug, count)
+
+            self.slug = slug
 
         super(Post, self).save()
 
@@ -72,8 +77,8 @@ class Post(models.Model):
         y verbose del modelo
         """
         index_together = ['slug', 'public']
-        verbose_name = 'Solución'
-        verbose_name_plural = 'Soluciones'
+        verbose_name = 'solución'
+        verbose_name_plural = 'soluciones'
 
 
 class Category(models.Model):
@@ -108,8 +113,8 @@ class Category(models.Model):
         super(Category, self).save()
 
     class Meta:
-        verbose_name = 'Categoría'
-        verbose_name_plural = 'Categorías'
+        verbose_name = 'categoría'
+        verbose_name_plural = 'categorías'
 
 
 class Tag(models.Model):
@@ -142,3 +147,7 @@ class Tag(models.Model):
             self.slug = slugify(self.tag)
 
         super(Tag, self).save()
+
+    class Meta:
+        verbose_name = 'tag'
+        verbose_name_plural = 'tags'

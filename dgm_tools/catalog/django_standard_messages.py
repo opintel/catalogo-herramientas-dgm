@@ -8,4 +8,5 @@ _(
     "Please enter the correct %(username)s and password for a staff "
     "account. Note that both fields may be case-sensitive."
 ),
+_("Objects"),
 ]

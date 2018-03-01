@@ -18,12 +18,7 @@ class PostFilter(filters.FilterSet):
     title = filters.CharFilter(name="title", method="unaccent_search")
     class Meta:
         model = Post
-        # fields = {
-        #     'category': ['exact'],
-        #     'tags': ['exact', 'contains'],
-        #     'title': []
-        # }
-        fields = ["category", "tags", "title"]
+        fields = ["category", "tags", "title", "level"]
 
     def unaccent_search(self, queryset, name, value):
         return queryset.filter(title__unaccent__icontains=value)
@@ -42,6 +37,7 @@ class PostViewSet(ReadOnlyModelViewSet):
         'slug',
         'description',
         'category',
+        'level',
         'tags',
         'public',
         'created'

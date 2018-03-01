@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-27 17:55-0600\n"
+"POT-Creation-Date: 2018-02-28 17:12-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: catalog/django_standard_messages.py:6
+#: dgm_tools/catalog/django_standard_messages.py:6
 #, python-format
 msgid "Successfully deleted %(count)d %(items)s."
 msgstr "%(items)s: %(count)d objeto(s) eliminado(s) con éxito."
 
-#: catalog/django_standard_messages.py:8
+#: dgm_tools/catalog/django_standard_messages.py:8
 #, python-format
 msgid ""
 "Please enter the correct %(username)s and password for a staff account. Note "
@@ -33,3 +33,6 @@ msgstr ""
 "staff. Note que puede que ambos campos sean estrictos en relación a "
 "diferencias entre mayúsculas y minúsculas."
 
+#: dgm_tools/catalog/django_standard_messages.py:11
+msgid "Objects"
+msgstr "Objetos"

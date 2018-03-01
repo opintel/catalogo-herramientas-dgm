@@ -62,7 +62,13 @@ $(document).ready(function(){
 
              filtros += "level=" + dificultad_herramienta.trim();
         }
-        
+
+        if(!filtros){
+            $('.pagination-div').show();
+            $('.server-posts').show();
+            return false;
+        }
+
         $.get('/soluciones-abiertas/api/posts/?' + filtros).done(function(response){
             $('.api-posts').html('');
 
@@ -88,13 +94,6 @@ $(document).ready(function(){
         }
     });
 
-    $('#titulo-herramienta').keyup(function(event){
-        if(!$('#titulo-herramienta').val().trim()){
-            $('.api-posts').hide();
-            $('.pagination-div').show();
-            $('.server-posts').show();
-        }
-    });
 
     $('.search-button').click(function(event){
         callAPIPosts();

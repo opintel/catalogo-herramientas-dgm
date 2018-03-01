@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.conf import settings
 from .models import Post, Tag, Category
+from .forms import PostForm, CategoryForm, TagForm
 
 
 # Register your models here.
@@ -12,6 +13,7 @@ class AdminPost(admin.ModelAdmin):
     las entradas del CMS
     """
     model = Post
+    form = PostForm
     list_filter = (
         'title',
         'created'
@@ -67,6 +69,7 @@ class AdminCategory(admin.ModelAdmin):
     las categorias del CMS
     """
     model = Category
+    form = CategoryForm
     list_filter = (
         'name',
     )
@@ -89,6 +92,7 @@ class AdminTag(admin.ModelAdmin):
     los tags del CMS
     """
     model = Tag
+    form = TagForm
     list_filter = (
         'tag',
     )
