@@ -72,7 +72,7 @@
                             <span class="link">{{post.category.name}}</span>
                         </a>
                         <p class="description-post">
-                            {{post.description}}
+                            {{post.description|truncatewords:60}}
                         </p>
                         <div class="link-buttons" style="text-align: center;">
                             <a href="{{post.link_external_tool}}" target="_blank" class="tool-link google-link">Web de la Solución Abierta</a>
