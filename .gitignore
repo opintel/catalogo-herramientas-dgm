@@ -3,6 +3,7 @@
 *.sqlite3
 dgm_tools/db.sqlite3
 dgm_tools/catalogo_test.jsongit 
-dgm_tools/catalog/__pycache__
-dgm_tools/catalog/migrations/__pycache__
-dgm_tools/dgm_tools/__pycache__
+dgm_tools/catalog/__pycache__/*
+dgm_tools/catalog/migrations/__pycache__/*
+dgm_tools/dgm_tools/__pycache__/*
+init.bash

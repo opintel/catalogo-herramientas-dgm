@@ -12,8 +12,8 @@ class Post(models.Model):
     Modelo de las entradas
     del CMS
     """
-    title = models.CharField(null=False, max_length=110, verbose_name='Titulo', db_index=True, unique=True)
-    description = models.TextField(blank=True, verbose_name='Encabezado')
+    title = models.CharField(null=False, max_length=110, verbose_name='Título', db_index=True, unique=True)
+    description = models.TextField(blank=True, verbose_name='Encabezado', max_length=300)
     slug = models.SlugField(max_length=210, unique=True)
     text = models.TextField(blank=True, verbose_name='Texto')
     # Categorization

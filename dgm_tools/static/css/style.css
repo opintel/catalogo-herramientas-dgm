@@ -308,7 +308,7 @@ section#landing-table .data-table {
 }
 
 .input-optimize {
-    width: 69% !important;
+    width: 65% !important;
     border-right: none !important; 
 }
 
@@ -377,4 +377,8 @@ section#landing-table .data-table {
 
 .post .link-buttons {
     position: inherit !important;
+}
+
+.pagination .disabled {
+    pointer-events: none;
 }

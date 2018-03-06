@@ -37,7 +37,7 @@
                     <div class="fb-share">
                         <div fb-share="post.name">
                             <div class="fb-share-button fb_iframe_widget">
-                                <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2F{{settings.FQDN}}/soluciones-abiertas/{{post.slug}}/&layout=button_count&size=small&mobile_iframe=true&appId=&width=88&height=20&locale=es_LA" width="88" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                                <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2F{{settings.FQDN}}/soluciones-abiertas/{{post.slug}}/&layout=button_count&size=small&mobile_iframe=true&appId=&width=88&height=20&locale=es_LA" width="88" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                             <span class="link">{{post.category.name}}</span>
                         </a>
                         <p class="description-post">
-                            {{post.description|truncatewords:60}}
+                            {{post.description|truncatechars:300}}
                         </p>
                         <div class="link-buttons" style="text-align: center;">
                             <a href="{{post.link_external_tool}}" target="_blank" class="tool-link google-link">Web de la Solución Abierta</a>

@@ -20,6 +20,11 @@ class PostForm(forms.ModelForm):
 
         return title
 
+    class Meta:
+        help_texts = {
+            'description': ('Máximo 300 caracteres'),
+        }
+
 
 class CategoryForm(forms.ModelForm):
     model = Category

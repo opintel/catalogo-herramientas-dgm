@@ -190,7 +190,7 @@
                             </li>
 
                             <li class="pagination-prev {% if not posts.has_previous %}disabled{% endif %}">
-                                <a href="/soluciones-abiertas/p/{% if posts.has_previous %}{{posts.previous_page_number}}/{% endif %}">‹</a>
+                                <a href="{% if posts.has_previous %}/soluciones-abiertas/p/{{posts.previous_page_number}}/{% endif %}">‹</a>
                             </li>
 
                             {% for i in p_range %}
@@ -200,11 +200,11 @@
                             {% endfor %}
 
                             <li class="pagination-next {% if not posts.has_next %}disabled{% endif %}">
-                                <a href="/soluciones-abiertas/p/{% if posts.has_next %}{{posts.next_page_number}}{% endif %}/">›</a>
+                                <a href="{% if posts.has_next %}/soluciones-abiertas/p/{{posts.next_page_number}}/{% endif %}">›</a>
                             </li>
 
                             <li class="pagination-last {% if not posts.has_next %}disabled{% endif %}">
-                                <a href="/soluciones-abiertas/p/{% if posts.has_next %}{{posts.paginator.num_pages}}{% endif %}">»</a>
+                                <a href="{% if posts.has_next %}/soluciones-abiertas/p/{{posts.paginator.num_pages}}/{% endif %}">»</a>
                             </li>
 
                         </ul>
