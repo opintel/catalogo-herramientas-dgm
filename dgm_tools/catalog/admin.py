@@ -28,6 +28,7 @@ class AdminPost(admin.ModelAdmin):
     fields = [
         'title',
         'description',
+        'image',
         'link_external_tool',
         'text',
         'category',

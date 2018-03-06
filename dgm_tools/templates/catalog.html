@@ -5,7 +5,10 @@
 
 {% block js_scripts %}
 <script src="{% static 'js/mustache.min.js' %}"></script>
+{% comment %}
 <script src="{% static 'js/catalogo.js' %}"></script>
+{% endcomment %}
+<script src="https://cms-presidencia.s3.amazonaws.com/static-dev/js/catalogo.js?32343"></script>
 {% endblock %}
 
 
@@ -153,7 +156,7 @@
                             <div class="col-md-6 post-item">
                                 <div class="inner">
                                     <a href="{{post.get_absolute_url}}">
-                                        <img alt="{{post.title}}" src="https://datos.gob.mx/public/img/uploads/5a3801925f14526e00dcdd64/f6GxgdxBGHm13LbR.png">
+                                        <img alt="{{post.title}}" src="{{post.get_image}}">
                                     </a>
                                     <a class="tag no-cursor" >
                                         <span class="tag-icon tag-nula"></span>

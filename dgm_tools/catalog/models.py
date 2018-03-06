@@ -3,6 +3,7 @@ Modelos usados en el CMS
 de Soluciones de presidencia
 """
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import User
 from slugify import slugify
 
@@ -14,6 +15,7 @@ class Post(models.Model):
     """
     title = models.CharField(null=False, max_length=110, verbose_name='Título', db_index=True, unique=True)
     description = models.TextField(blank=True, verbose_name='Encabezado', max_length=300)
+    image = models.ImageField(upload_to="media/dev-media" if settings.DEBUG else "media/prod-media", verbose_name="Imagen", null=True, blank=True)
     slug = models.SlugField(max_length=210, unique=True)
     text = models.TextField(blank=True, verbose_name='Texto')
     # Categorization
@@ -52,6 +54,12 @@ class Post(models.Model):
         """
         from django.urls import reverse
         return reverse('catalog_post', kwargs={'slug': self.slug})
+
+    def get_image(self):
+        if not self.image:
+            return 'https://datos.gob.mx/public/img/uploads/5a3801925f14526e00dcdd64/f6GxgdxBGHm13LbR.png'
+
+        return self.image.url
 
     def save(self):
         """

@@ -69,7 +69,8 @@ $(document).ready(function(){
             return false;
         }
 
-        $.get('/soluciones-abiertas/api/posts/?' + filtros).done(function(response){
+        console.log(encodeURIComponent('/soluciones-abiertas/api/posts/?' + filtros));
+        $.get(encodeURIComponent('/soluciones-abiertas/api/posts/?' + filtros)).done(function(response){
             $('.api-posts').html('');
 
             for(var x=0; x < response.results.length; x++){

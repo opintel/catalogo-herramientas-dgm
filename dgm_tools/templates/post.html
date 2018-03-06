@@ -24,7 +24,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:title" content="{{post.title}}" />
 <meta property="og:description" content="{{post.description}}" />
-<meta property="og:image" content="https://datos.gob.mx/public/img/uploads/5a3801925f14526e00dcdd64/f6GxgdxBGHm13LbR.png" />
+<meta property="og:image" content="{{post.get_image}}" />
 {% endblock %}
 
 {% block content %}
@@ -83,7 +83,7 @@
                             <div id="tool-gallery" class="carousel slide">
                                 <div role="listbox" class="carousel-inner">
                                     <div class="item active">
-                                        <img alt="{{post.title}}" src="https://datos.gob.mx/public/img/uploads/5a3801925f14526e00dcdd64/f6GxgdxBGHm13LbR.png">
+                                        <img alt="{{post.title}}" src="{{post.get_image}}">
                                     </div>
                                 </div>
                             </div>

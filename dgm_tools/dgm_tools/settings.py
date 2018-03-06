@@ -139,9 +139,9 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_LOCATION = 'static-dev' if DEBUG else 'static-prod'
 AWS_QUERYSTRING_AUTH = False
 
-
-# STATIC_URL = '/catalogo/static/'
 STATIC_URL = 'https://{0}.s3.amazonaws.com/'.format(AWS_STORAGE_BUCKET_NAME)
+MEDIA_URL = 'https://{0}.s3.amazonaws.com/media/'.format(AWS_STORAGE_BUCKET_NAME)
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static/'),
 )
