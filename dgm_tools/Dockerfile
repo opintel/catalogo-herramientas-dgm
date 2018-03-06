@@ -5,7 +5,7 @@ ENV PATH /usr/local/bin:$PATH
 ENV LANG C.UTF-8
 
 RUN mkdir dgm_tools && apk update && \
-    apk add --no-cache --virtual build-deps gcc musl-dev git && \
+    apk add --no-cache --virtual build-deps gcc musl-dev git jpeg-dev zlib-dev && \
     apk add python3 \
             python3-dev \
             postgresql-dev \
