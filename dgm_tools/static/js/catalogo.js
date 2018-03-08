@@ -44,7 +44,7 @@ $(document).ready(function(){
         var titulo_herramienta = $('#titulo-herramienta').val();
 
         if(titulo_herramienta.trim()){
-            filtros = "title=" + titulo_herramienta.trim();
+            filtros = "title=" + encodeURIComponent(titulo_herramienta.trim());
         }
 
         if(tipo_herramienta.trim()){
@@ -69,24 +69,60 @@ $(document).ready(function(){
             return false;
         }
 
-        console.log(encodeURIComponent('/soluciones-abiertas/api/posts/?' + filtros));
-        $.get(encodeURIComponent('/soluciones-abiertas/api/posts/?' + filtros)).done(function(response){
-            $('.api-posts').html('');
-
-            for(var x=0; x < response.results.length; x++){
-                if(x % 2 == 0 && x > 0){
-                    $('.api-posts').append('<div class="clearfix"></div>');
+        $('.api-posts').pagination({
+            dataSource: function(done) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/soluciones-abiertas/api/posts/?' + filtros,
+                    success: function(response) {
+                        done(response.results);
+                    }
+                });
+            },
+            locator: 'items',
+            pageSize: 10,
+            totalNumberLocator: function(response) {
+                // you can return totalNumber by analyzing response content
+                return response.count;
+            },
+            ajax: {
+                beforeSend: function() {
+                    // dataContainer.html('Buscando soluciones ...');
+                    console.log('Buscando soluciones ...');
                 }
-                var rendered = Mustache.render(template_post, response.results[x]);
-                $('.api-posts').append(rendered);
-            }
+            },
+            callback: function(data, pagination) {
+                // template method of yourself
+                console.log(pagination)
+                for(var x=0; x < data.length; x++){
+                    if(x % 2 == 0 && x > 0){
+                        $('.api-posts').append('<div class="clearfix"></div>');
+                    }
 
-            $('.api-posts').show();
-        }).fail(function(response){
-            console.log(response);
-            $('.pagination-div').show();
-            $('.server-posts').show();
+                    var rendered = Mustache.render(template_post, data[x]);
+                    $('.api-posts').append(rendered);
+                }
+                $('.api-posts').show();
+            }
         });
+
+        // $.get('/soluciones-abiertas/api/posts/?' + filtros).done(function(response){
+        //     $('.api-posts').html('');
+
+        //     for(var x=0; x < response.results.length; x++){
+        //         if(x % 2 == 0 && x > 0){
+        //             $('.api-posts').append('<div class="clearfix"></div>');
+        //         }
+        //         var rendered = Mustache.render(template_post, response.results[x]);
+        //         $('.api-posts').append(rendered);
+        //     }
+
+        //     $('.api-posts').show();
+        // }).fail(function(response){
+        //     console.log(response);
+        //     $('.pagination-div').show();
+        //     $('.server-posts').show();
+        // });
     }
 
     $('#titulo-herramienta').keypress(function(event){

@@ -308,7 +308,7 @@ section#landing-table .data-table {
 }
 
 .input-optimize {
-    width: 65% !important;
+    width: 63% !important;
     border-right: none !important; 
 }
 
@@ -324,9 +324,9 @@ section#landing-table .data-table {
     #catalogo-banner h1 {
         font-size: 37px;
     }
-    .input-optimize {
+    /* .input-optimize {
         width: 83% !important;
-    }
+    } */
     .search-optimize{
         top: -1px;
         left: -4px;
@@ -343,9 +343,9 @@ section#landing-table .data-table {
 }
 
 @media screen and (max-width: 766px) {
-    .input-optimize {
+    /* .input-optimize {
         width: 83% !important;
-    }
+    } */
 
     .search-optimize{
         top: -1px;
