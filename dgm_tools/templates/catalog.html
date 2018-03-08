@@ -6,13 +6,12 @@
 {% block js_scripts %}
     <script src="http://pagination.js.org/dist/2.1.2/pagination.min.js"></script>
     <script src="{% static 'js/mustache.min.js' %}"></script>
+    <script src="/soluciones-abiertas/static/js/catalogo.js?1543454"></script>
     {% comment %}
     <script src="https://cms-presidencia.s3.amazonaws.com/static-dev/js/catalogo.js?32343443"></script>
     <script src="{% static 'js/catalogo.js' %}"></script>
     {% endcomment %}
-    <script src="/soluciones-abiertas/static/js/catalogo.js?153435454"></script>
-    {% endblock %}
-
+{% endblock %}
 
 {% block breadcrumbs %}
     {% if posts.number > 1 %}
@@ -31,7 +30,6 @@
     </ul>
     {% endif %}
 {% endblock %}
-
 
 {% block content %}
     {% if posts.number == 1 %}
@@ -126,7 +124,6 @@
                 </div>
                 {% endif %}
 
-
                 <div class="row">
                     <div class="col-md-12">
                         <form class="search-form posts form-inline">
@@ -136,7 +133,7 @@
                             <button type="button" class="btn btn-primary search-button search-optimize">
                                 <div class="glyphicon glyphicon-search"></div>
                             </button>
-                            <select name="tag" id="tipo-herramienta" class="form-control hidden-xs hidden-sm">
+                            <select name="tag" id="tipo-herramienta" class="form-control hidden-xs hidden-sm" style="max-width: 240px;">
                                 <option value="" class="" selected="selected">Tipos</option>
 
                                 {% for category in categories %}

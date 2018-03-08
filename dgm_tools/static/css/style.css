@@ -308,12 +308,13 @@ section#landing-table .data-table {
 }
 
 .input-optimize {
-    width: 63% !important;
+    width: 62% !important;
     border-right: none !important; 
 }
 
 #tipo-herramienta {
     display: inline !important;
+    max-width: 240px;
 }
 
 #dificultad-herramienta {
