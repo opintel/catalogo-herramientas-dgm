@@ -95,7 +95,7 @@ class Category(models.Model):
     para el CMS
     """
     name = models.CharField(null=False, max_length=110, verbose_name='Nombre', unique=True)
-    slug = models.SlugField(db_index=True, editable=False)
+    slug = models.SlugField(db_index=True, editable=False, max_length=300)
     description = models.TextField(blank=True, verbose_name='Descripcion')
     # Periodicity
     created = models.DateTimeField(auto_now_add=True, verbose_name='Creado')
@@ -131,7 +131,7 @@ class Tag(models.Model):
     para el CMS
     """
     tag = models.CharField(max_length=80, unique=True)
-    slug = models.SlugField(db_index=True, editable=False)
+    slug = models.SlugField(db_index=True, editable=False, max_length=300)
 
     # Periodicity
     created = models.DateTimeField(auto_now_add=True, verbose_name='Creado')
