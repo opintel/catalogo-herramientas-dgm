@@ -7,3 +7,4 @@ dgm_tools/catalog/__pycache__/*
 dgm_tools/catalog/migrations/__pycache__/*
 dgm_tools/dgm_tools/__pycache__/*
 init.bash
+dmg_tools/src
