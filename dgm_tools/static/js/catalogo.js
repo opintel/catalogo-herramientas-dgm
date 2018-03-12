@@ -9,7 +9,7 @@ $(document).ready(function(){
     var template_post = `<div class="col-md-6 post-item">
         <div class="inner">
                 <a alt="{{title}}" href="/soluciones-abiertas/herramientas/{{slug}}">
-                    <img src="https://datos.gob.mx/public/img/uploads/5a3801925f14526e00dcdd64/f6GxgdxBGHm13LbR.png">
+                    <img src="{{image}}">
                 </a>
 
                 <a class="tag no-cursor">
@@ -21,7 +21,6 @@ $(document).ready(function(){
             <div class="post-info">
                 <h3>
                     <a alt="{{title}}" href="/soluciones-abiertas/herramientas/{{slug}}">{{title}}</a>
-                    <!-- end ngIf: !post.external_link -->
                 </h3>
                 <p class="excerpt hidden-xs hidden-sm ">{{description}}</p>
                 <p class="category">
