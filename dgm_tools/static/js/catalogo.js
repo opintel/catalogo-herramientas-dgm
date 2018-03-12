@@ -8,8 +8,13 @@ $(document).ready(function(){
 
     var template_post = `<div class="col-md-6 post-item">
         <div class="inner">
-                <a alt="{{title}}" href="/soluciones-abiertas/herramientas/{{slug}}">
-                    <img src="{{image}}">
+                <a href="/soluciones-abiertas/herramientas/{{slug}}">
+                    {{#image}}
+                        <img alt="{{title}}" src="{{image}}">
+                    {{/image}}
+                    {{^image}}
+                        <img alt="{{title}}" src="https://datos.gob.mx/public/img/uploads/5a3801925f14526e00dcdd64/f6GxgdxBGHm13LbR.png">
+                    {{/image}}
                 </a>
 
                 <a class="tag no-cursor">
