@@ -287,7 +287,7 @@ section#landing-table .data-table {
     position: relative;
     font-family: "Open Sans", sans-serif;
     font-weight: 100;
-    margin-top: -1;
+    margin-top: -1px;
 }
 
 #catalogo-banner img {

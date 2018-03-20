@@ -7,7 +7,7 @@ $(document).ready(function(){
     });
 
     var $pagination = $('.pagination');
-    var prevPagination = $pagination.html;
+    var prevPagination = $pagination.html();
     var post_list = [];
     var page_results = [];
 
@@ -89,7 +89,9 @@ $(document).ready(function(){
             post_list = response.results;
             page_results = response.results;
 
-            if(response.results.length === 0)
+            if(response.results.length === 0){
+                return false;
+            }
             if(response.results.length > PAGE_SIZE){
                 page_results = paginate(post_list, PAGE_SIZE, 1);
             }
@@ -102,6 +104,12 @@ $(document).ready(function(){
                 $('.api-posts').append(rendered);
             }
 
+            $pagination.html('');
+
+            if($pagination.twbsPagination){
+                $pagination.twbsPagination('destroy');
+            }
+
             $pagination.twbsPagination({
                 totalPages: Math.ceil(response.results.length / PAGE_SIZE),
                 cssStyle: '',
@@ -112,8 +120,7 @@ $(document).ready(function(){
                 onPageClick: function (evt, page) {
                     $('.api-posts').html('');
                     var page_list = paginate(post_list, PAGE_SIZE, page);
-                    console.log(page);
-                    console.log(page_list);
+
                     for(var x=0; x < page_list.length; x++){
                         if(x % 2 == 0 && x > 0){
                             $('.api-posts').append('<div class="clearfix"></div>');
@@ -134,6 +141,7 @@ $(document).ready(function(){
     $('#titulo-herramienta').keypress(function(event){
         if(event.which === 13){
             callAPIPosts();
+            return false;
         }
     });
 
