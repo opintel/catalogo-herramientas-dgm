@@ -1,13 +1,15 @@
 $(document).ready(function(){
     $(document).keypress(
         function(event){
-         if (event.which == '13') {
+         if (event.which === '13') {
             event.preventDefault();
           }
     });
 
     var $pagination = $('.pagination');
     var prevPagination = $pagination.html;
+    var post_list = [];
+    var page_results = [];
 
     var template_post = `<div class="col-md-6 post-item">
         <div class="inner">
@@ -76,15 +78,18 @@ $(document).ready(function(){
         }
 
         if(!filtros){
+            $pagination.html(prevPagination);
+            $('.api-posts').hide();
             $('.server-posts').show();
             return false;
         }
 
         $.get('/soluciones-abiertas/api/posts/?' + filtros).done(function(response){
             $('.api-posts').html('');
-            var post_list = response.results
-                page_results = response.results;
+            post_list = response.results;
+            page_results = response.results;
 
+            if(response.results.length === 0)
             if(response.results.length > PAGE_SIZE){
                 page_results = paginate(post_list, PAGE_SIZE, 1);
             }
@@ -122,11 +127,12 @@ $(document).ready(function(){
         }).fail(function(response){
             console.log(response);
             $('.server-posts').show();
+            $('.api-posts').hide();
         });
     }
 
     $('#titulo-herramienta').keypress(function(event){
-        if(event.which == 13){
+        if(event.which === 13){
             callAPIPosts();
         }
     });
