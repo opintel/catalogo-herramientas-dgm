@@ -6,6 +6,9 @@ $(document).ready(function(){
           }
     });
 
+    var $pagination = $('.pagination');
+    var prevPagination = $pagination.html;
+
     var template_post = `<div class="col-md-6 post-item">
         <div class="inner">
                 <a href="/soluciones-abiertas/herramientas/{{slug}}">
@@ -37,15 +40,20 @@ $(document).ready(function(){
             </div>
     </div>`;
 
+    function paginate (array, page_size, page_number) {
+        --page_number; // because pages logically start with 1, but technically with 0
+        return array.slice(page_number * page_size, (page_number + 1) * page_size);
+    }
+
     function callAPIPosts(){
         Mustache.parse(template_post);
-        $('.pagination-div').hide();
         $('.server-posts').hide();
 
         var filtros = "";
         var dificultad_herramienta = $('#dificultad-herramienta').val();
         var tipo_herramienta = $('#tipo-herramienta').val();
         var titulo_herramienta = $('#titulo-herramienta').val();
+        var PAGE_SIZE = 10;
 
         if(titulo_herramienta.trim()){
             filtros = "title=" + encodeURIComponent(titulo_herramienta.trim());
@@ -68,67 +76,51 @@ $(document).ready(function(){
         }
 
         if(!filtros){
-            $('.pagination-div').show();
             $('.server-posts').show();
             return false;
         }
 
-        // $('.api-posts').pagination({
-        //     dataSource: function(done) {
-        //         $.ajax({
-        //             type: 'GET',
-        //             url: '/soluciones-abiertas/api/posts/?' + filtros,
-        //             success: function(response) {
-        //                 done(response.results);
-        //             }
-        //         });
-        //     },
-        //     locator: 'items',
-        //     pageSize: 10,
-        //     totalNumberLocator: function(response) {
-        //         // you can return totalNumber by analyzing response content
-        //         return response.count;
-        //     },
-        //     ajax: {
-        //         beforeSend: function() {
-        //             // dataContainer.html('Buscando soluciones ...');
-        //             console.log('Buscando soluciones ...');
-        //         }
-        //     },
-        //     callback: function(data, pagination) {
-        //         // template method of yourself
-        //         console.log(pagination);
-        //         var html = '';
-        //         for(var x=0; x < data.length; x++){
-        //             if(x % 2 == 0 && x > 0){
-        //                 html = html.concat('<div class="clearfix"></div>');
-        //                 // $('.api-posts').append('<div class="clearfix"></div>');
-        //             }
-
-        //             var rendered = Mustache.render(template_post, data[x]);
-        //             html = html.concat(rendered);
-        //         }
-        //         console.log(html);
-        //         $('.api-posts').append(html);
-        //         $('.api-posts').show();
-        //     }
-        // });
-
         $.get('/soluciones-abiertas/api/posts/?' + filtros).done(function(response){
             $('.api-posts').html('');
+            var post_list = response.results
+                page_results = response.results;
 
-            for(var x=0; x < response.results.length; x++){
+            if(response.results.length > PAGE_SIZE){
+                page_results = paginate(post_list, PAGE_SIZE, 1);
+            }
+
+            for(var x=0; x < page_results.length; x++){
                 if(x % 2 == 0 && x > 0){
                     $('.api-posts').append('<div class="clearfix"></div>');
                 }
-                var rendered = Mustache.render(template_post, response.results[x]);
+                var rendered = Mustache.render(template_post, page_results[x]);
                 $('.api-posts').append(rendered);
             }
 
+            $pagination.twbsPagination({
+                totalPages: Math.ceil(response.results.length / PAGE_SIZE),
+                cssStyle: '',
+                first: '<span aria-hidden="true">&laquo;</span>',
+                last: '<span aria-hidden="true">&raquo;</span>',
+                prev: '<span aria-hidden="true">‹</span>',
+                next: '<span aria-hidden="true">›</span>',
+                onPageClick: function (evt, page) {
+                    $('.api-posts').html('');
+                    var page_list = paginate(post_list, PAGE_SIZE, page);
+                    console.log(page);
+                    console.log(page_list);
+                    for(var x=0; x < page_list.length; x++){
+                        if(x % 2 == 0 && x > 0){
+                            $('.api-posts').append('<div class="clearfix"></div>');
+                        }
+                        var rendered = Mustache.render(template_post, page_list[x]);
+                        $('.api-posts').append(rendered);
+                    }
+                }
+            });
             $('.api-posts').show();
         }).fail(function(response){
             console.log(response);
-            $('.pagination-div').show();
             $('.server-posts').show();
         });
     }
