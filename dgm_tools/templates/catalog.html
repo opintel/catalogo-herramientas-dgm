@@ -185,7 +185,7 @@
 
                 {% if posts.has_other_pages %}
                     <div class="text-center pagination-div">
-                        <ul class="pagination">
+                        <ul class="pagination-server">
 
                             <li class="pagination-first {% if not posts.has_previous %}disabled{% endif %}">
                                 <a href="/soluciones-abiertas/">«</a>
@@ -210,6 +210,7 @@
                             </li>
 
                         </ul>
+                        <ul class="pagination"></ul>
                     </div>
                 {% endif %}
 

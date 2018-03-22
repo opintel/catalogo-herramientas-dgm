@@ -78,7 +78,8 @@ $(document).ready(function(){
         }
 
         if(!filtros){
-            $pagination.html(prevPagination);
+            $('.pagination-server').show();
+            $('.pagination').hide();
             $('.api-posts').hide();
             $('.server-posts').show();
             return false;
@@ -104,6 +105,7 @@ $(document).ready(function(){
                 $('.api-posts').append(rendered);
             }
 
+            $('.pagination-server').hide();
             $pagination.html('');
 
             if($pagination.twbsPagination){
@@ -130,9 +132,12 @@ $(document).ready(function(){
                     }
                 }
             });
+            $pagination.show();
             $('.api-posts').show();
         }).fail(function(response){
             console.log(response);
+            $pagination.hide();
+            $('.pagination-server').show();
             $('.server-posts').show();
             $('.api-posts').hide();
         });
