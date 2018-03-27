@@ -384,3 +384,120 @@ section#landing-table .data-table {
 .pagination .disabled {
     pointer-events: none;
 }
+
+.pagination-server .disabled {
+    pointer-events: none;
+}
+
+.pagination-server{
+    display:inline-block;
+    padding-left:0;
+    margin:22px 0;
+    border-radius:4px
+}
+.pagination-server>li{
+    display:inline
+}
+.pagination-server>li>a,.pagination-server>li>span{
+    position:relative;
+    float:left;
+    padding:6px 12px;
+    line-height:1.6;
+    text-decoration:none;
+    color:#0c9;
+    background-color:#fff;
+    border:1px solid #ddd;
+    margin-left:-1px
+}
+.pagination-server>li:first-child>a,.pagination-server>li:first-child>span{
+    margin-left:0;
+    border-bottom-left-radius:4px;
+    border-top-left-radius:4px
+}
+.pagination-server>li:last-child>a,.pagination-server>li:last-child>span{
+    border-bottom-right-radius:4px;
+    border-top-right-radius:4px
+}
+.pagination-server>li>a:hover,.pagination-server>li>a:focus,.pagination-server>li>span:hover,.pagination-server>li>span:focus{
+    z-index:2;
+    color:#008060;
+    background-color:#eee;
+    border-color:#ddd
+}
+.pagination-server>.active>a,.pagination-server>.active>a:hover,.pagination-server>.active>a:focus,.pagination-server>.active>span,.pagination-server>.active>span:hover,.pagination-server>.active>span:focus{
+    z-index:3;
+    color:#fff;
+    background-color:#0c9;
+    border-color:#0c9;
+    cursor:default
+}
+.pagination-server>.disabled>span,.pagination-server>.disabled>span:hover,.pagination-server>.disabled>span:focus,.pagination-server>.disabled>a,.pagination-server>.disabled>a:hover,.pagination-server>.disabled>a:focus{
+    color:#777;
+    background-color:#fff;
+    border-color:#ddd;
+    cursor:not-allowed
+}
+.pagination-server-lg>li>a,.pagination-server-lg>li>span{
+    padding:10px 16px;
+    font-size:18px;
+    line-height:1.33333
+}
+.pagination-server-lg>li:first-child>a,.pagination-lg>li:first-child>span{
+    border-bottom-left-radius:6px;
+    border-top-left-radius:6px
+}
+.pagination-lg>li:last-child>a,.pagination-lg>li:last-child>span{
+    border-bottom-right-radius:6px;
+    border-top-right-radius:6px
+}
+.pagination-sm>li>a,.pagination-sm>li>span{
+    padding:5px 10px;
+    font-size:12px;
+    line-height:1.5
+}
+.pagination-sm>li:first-child>a,.pagination-sm>li:first-child>span{
+    border-bottom-left-radius:3px;
+    border-top-left-radius:3px
+}
+.pagination-sm>li:last-child>a,.pagination-sm>li:last-child>span{
+    border-bottom-right-radius:3px;
+    border-top-right-radius:3px
+}
+.pager{
+    padding-left:0;
+    margin:22px 0;
+    list-style:none;
+    text-align:center
+}
+.pager:before,.pager:after{
+    content:" ";
+    display:table
+}
+.pager:after{
+    clear:both
+}
+.pager li{
+    display:inline
+}
+.pager li>a,.pager li>span{
+    display:inline-block;
+    padding:5px 14px;
+    background-color:#fff;
+    border:1px solid #ddd;
+    border-radius:15px
+}
+.pager li>a:hover,.pager li>a:focus{
+    text-decoration:none;
+    background-color:#eee
+}
+.pager .next>a,.pager .next>span{
+    float:right
+}
+.pager .previous>a,.pager .previous>span{
+    float:left
+}
+.pager .disabled>a,.pager .disabled>a:hover,.pager .disabled>a:focus,.pager .disabled>span{
+    color:#777;
+    background-color:#fff;
+    cursor:not-allowed
+}
