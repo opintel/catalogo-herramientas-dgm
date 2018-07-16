@@ -35,11 +35,15 @@
                 <div class="share-buttons hidden-xs hidden-sm">
                     <p>Compartir</p>
                     <div class="fb-share">
-                        <div fb-share="post.name">
+                        <div class="fb-share-button" 
+                            data-href="https://{{settings.FQDN}}/soluciones-abiertas/{{post.slug}}/" 
+                            data-layout="button_count">
+                        </div>
+                        <!-- <div fb-share="post.name">
                             <div class="fb-share-button fb_iframe_widget">
                                 <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2F{{settings.FQDN}}/soluciones-abiertas/{{post.slug}}/&layout=button_count&size=small&mobile_iframe=true&appId=&width=88&height=20&locale=es_LA" width="88" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="tw-share">
                         <div tweet="post.name">
