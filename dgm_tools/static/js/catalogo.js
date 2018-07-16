@@ -1,8 +1,8 @@
 $(document).ready(function(){
     $(document).keypress(
-        function(event){
-         if (event.which === '13') {
-            event.preventDefault();
+        function(eventHandler){
+         if (eventHandler.which === '13') {
+            eventHandler.preventDefault();
           }
     });
 
@@ -143,8 +143,8 @@ $(document).ready(function(){
         });
     }
 
-    $('#titulo-herramienta').keypress(function(event){
-        if(event.which === 13){
+    $('#titulo-herramienta').keypress(function(eventHandler){
+        if(eventHandler.which === 13){
             callAPIPosts();
             return false;
         }
