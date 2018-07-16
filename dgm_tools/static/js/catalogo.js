@@ -98,7 +98,7 @@ $(document).ready(function(){
             }
 
             for(var x=0; x < page_results.length; x++){
-                if(x % 2 == 0 && x > 0){
+                if(x % 2 === 0 && x > 0){
                     $(".api-posts").append("<div class='clearfix'></div>");
                 }
                 var rendered = Mustache.render(template_post, page_results[x]);
@@ -124,7 +124,7 @@ $(document).ready(function(){
                     var page_list = paginate(post_list, PAGE_SIZE, page);
 
                     for(var x=0; x < page_list.length; x++){
-                        if(x % 2 == 0 && x > 0){
+                        if(x % 2 === 0 && x > 0){
                             $(".api-posts").append("<div class='clearfix'></div>");
                         }
                         var rendered = Mustache.render(template_post, page_list[x]);
